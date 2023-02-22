@@ -28,7 +28,8 @@ createAutoComplete({
     onMovieSelect(
       movie.imdbID,
       document.querySelector("#left-summary"),
-      "left"
+      "left",
+      subscriber
     );
   },
 });
@@ -41,7 +42,8 @@ createAutoComplete({
     onMovieSelect(
       movie.imdbID,
       document.querySelector("#right-summary"),
-      "right"
+      "right",
+      subscriber
     );
   },
 });
@@ -49,7 +51,17 @@ createAutoComplete({
 let leftMovie;
 let rightMovie;
 
-const onMovieSelect = async (id, summaryElement, side) => {
+const createSubscriber = () => {
+  let sides = [];
+  return (side) => {
+    sides = [...sides, side];
+    console.log("compare", sides);
+  };
+};
+
+const subscriber = createSubscriber();
+
+const onMovieSelect = async (id, summaryElement, side, subscriber) => {
   const response = await axios.get("http://www.omdbapi.com/", {
     params: {
       apikey: "e005c5cb",
@@ -57,6 +69,7 @@ const onMovieSelect = async (id, summaryElement, side) => {
     },
   });
   summaryElement.innerHTML = movieTemplate(response.data);
+  subscriber(side);
   if (side === "left") {
     leftMovie = response.data;
   } else {
