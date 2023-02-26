@@ -19,3 +19,6 @@ mix test | run tests
 Other notes
 
 Pattern matching is replacement for variable assignment.
+
+
+IEx.configure(inspect: [charlists: :as_lists])
