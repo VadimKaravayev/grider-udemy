@@ -27,3 +27,6 @@ cards-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+#Node modules
+/node_modules
