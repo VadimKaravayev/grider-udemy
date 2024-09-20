@@ -1,0 +1,34 @@
+mix is a cli in Elixir
+
+Create a project
+
+> mix new <name_of_project>
+
+Strart interactive shell
+
+> iex -S mix
+
+
+Restart shell
+
+> recompile
+
+
+Pattern matching is Elixir's replacement for variable assignment.
+
+A string is a sequence of bytes. A byte contains of 8 bits. A bit equals either 0 or 1.
+
+Search for a dependency
+https://hex.pm/
+
+Install a dependency
+> mix deps.get
+
+Generate documentation
+> mix docs
+
+Run tests
+>mix test
+
+
+Struct is actually a map but with strictly defined keys. 

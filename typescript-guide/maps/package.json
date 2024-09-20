@@ -1,0 +1,29 @@
+{
+  "name": "maps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "server": "webpack-dev-server"
+  },
+  "author": "Buddy Cake",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "less": "^4.2.0",
+    "less-loader": "^11.1.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "@types/googlemaps": "^3.43.3"
+  }
+}

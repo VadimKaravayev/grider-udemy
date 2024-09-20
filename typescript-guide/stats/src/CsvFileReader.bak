@@ -1,0 +1,34 @@
+import fs from 'fs';
+import { parseToDate } from './utils';
+
+enum MatchResult {
+  HomeWin = 'H',
+  AwayWin = 'A',
+  Draw = 'D',
+}
+
+type MatchData = [Date, string, string, number, number, MatchResult, string];
+
+export class CsvFileReader {
+  data: Array<MatchData> = [];
+
+  constructor(public filename: string) {}
+
+  read(): void {
+    const filecsv = fs.readFileSync(this.filename, { encoding: 'utf-8' });
+    this.data = filecsv
+      .split(/\n/)
+      .map((str) => str.split(','))
+      .map((vals: string[]): MatchData => {
+        return [
+          parseToDate(vals[0]),
+          vals[1],
+          vals[2],
+          parseInt(vals[3]),
+          parseInt(vals[4]),
+          vals[5] as MatchResult,
+          vals[6],
+        ];
+      });
+  }
+}
